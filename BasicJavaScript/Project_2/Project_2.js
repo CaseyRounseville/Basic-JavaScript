@@ -1,128 +1,196 @@
 // Do not change any of the function names
 
 const getBiggest = (x, y) => {
-  // x and y are integers.  Return the larger integer
-  // if they are the same return either one
+	// x and y are integers.  Return the larger integer
+	// if they are the same return either one
+	return x > y ? x : y;
 };
 
 const greeting = (language) => {
-  // return a greeting for three different languages:
-  // language: 'German' -> 'Guten Tag!'
-  // language: 'Spanish' -> 'Hola!'
-  // language: 'Chinese' -> 'Ni Hao!'
-  // if language is undefined return 'Hello!'
+	// return a greeting for three different languages:
+	// language: 'German' -> 'Guten Tag!'
+	// language: 'Spanish' -> 'Hola!'
+	// language: 'Chinese' -> 'Ni Hao!'
+	// if language is undefined return 'Hello!'
+	switch (language) {
+	default:
+	case "English":
+		return "Hello!";
+	case "German":
+		return "Guten Tag!";
+	case "Spanish":
+		return "Hola!";
+	case "Chinese":
+		return "Ni Hao!";
+	}
 };
 
 const isTenOrFive = (num) => {
-  // return true if num is 10 or 5
-  // otherwise return false
+	// return true if num is 10 or 5
+	// otherwise return false
+	return num == 10 || num == 5;
 };
 
 const isInRange = (num) => {
-  // return true if num is less than 50 and greater than 20
+	// return true if num is less than 50 and greater than 20
+	return num < 50 && num > 20;
 };
 
 const isInteger = (num) => {
-  // return true if num is an integer
-  // 0.8 -> false
-  // 1 -> true
-  // -10 -> true
-  // otherwise return false
-  // hint: you can solve this using Math.floor
+	// return true if num is an integer
+	// 0.8 -> false
+	// 1 -> true
+	// -10 -> true
+	// otherwise return false
+	// hint: you can solve this using Math.floor
+	return Math.floor(num) == num;
 };
 
 const fizzBuzz = (num) => {
-  // if num is divisible by 3 return 'fizz'
-  // if num is divisible by 5 return 'buzz'
-  // if num is divisible by 3 & 5 return 'fizzbuzz'
-  // otherwise return num
+	// if num is divisible by 3 return 'fizz'
+	// if num is divisible by 5 return 'buzz'
+	// if num is divisible by 3 & 5 return 'fizzbuzz'
+	// otherwise return num
+	if (num % 3 == 0 && num % 5 == 0) {
+		return "fizzbuzz";
+	} else if (num % 3 == 0) {
+		return "fizz";
+	} else if (num % 5 == 0) {
+		return "buzz";
+	} else {
+		return num;
+	}
 };
 
 const isPrime = (num) => {
-  // return true if num is prime.
-  // otherwise return false
-  // hint: a prime number is only evenly divisible by itself and 1
-  // hint2: you can solve this using a for loop
-  // note: 0 and 1 are NOT considered prime numbers
+	// return true if num is prime.
+	// otherwise return false
+	// hint: a prime number is only evenly divisible by itself and 1
+	// hint2: you can solve this using a for loop
+	// note: 0 and 1 are NOT considered prime numbers
+	if (num == 0 || num == 1) {
+		return false;
+	}
+	
 };
 
 const returnFirst = (arr) => {
-  // return the first item from the array
+	// return the first item from the array
+	return arr[0];
 };
 
 const returnLast = (arr) => {
-  // return the last item of the array
+	// return the last item of the array
+	return arr[arr.length - 1];
 };
 
 const getArrayLength = (arr) => {
-  // return the length of the array
+	// return the length of the array
+	return arr.length;
 };
 
 const incrementByOne = (arr) => {
-  // arr is an array of integers
-  // increase each integer by one
-  // return the array
+	// arr is an array of integers
+	// increase each integer by one
+	// return the array
+	for (var i = 0; i < arr.length; i++) {
+		arr[i]++;
+	}
 };
 
 const addItemToArray = (arr, item) => {
-  // add the item to the end of the array
-  // return the array
+	// add the item to the end of the array
+	// return the array
+	arr.push(item);
 };
 
 const addItemToFront = (arr, item) => {
-  // add the item to the front of the array
-  // return the array
-  // hint: use the array method .unshift
+	// add the item to the front of the array
+	// return the array
+	// hint: use the array method .unshift
+	arr.unshift(item);
 };
 
 const wordsToSentence = (words) => {
-  // words is an array of strings
-  // return a string that is all of the words concatenated together
-  // spaces need to be between each word
-  // example: ['Hello', 'world!'] -> 'Hello world!'
+	// words is an array of strings
+	// return a string that is all of the words concatenated together
+	// spaces need to be between each word
+	// example: ['Hello', 'world!'] -> 'Hello world!'
+	var numWords = words.length;
+	var numSpaces = words.length - 1;
+	var total = numWords + numSpaces;
+	var result = "";
+	for (var i = 0; i < total; i++) {
+		if (i % 2 == 0) {
+			// word
+			result += words[i / 2];
+		} else {
+			// space
+			result += " ";
+		}
+	}
+	return result;
 };
 
 const contains = (arr, item) => {
-  // check to see if item is inside of arr
-  // return true if it is, otherwise return false
+	// check to see if item is inside of arr
+	// return true if it is, otherwise return false
+	return arr.indexOf(item) != -1;
 };
 
 const addNumbers = (numbers) => {
-  // numbers is an array of integers.
-  // add all of the integers and return the value
-  // your iterator
+	// numbers is an array of integers.
+	// add all of the integers and return the value
+	// your iterator
+	return numbers.reduce(function(total, current) { return total + current; }, 0);
 };
 
 const averageTestScore = (testScores) => {
-  // testScores is an array.  Iterate over testScores and compute the average.
-  // return the average
+	// testScores is an array.  Iterate over testScores and compute the average.
+	// return the average
+	return addNumbers(testScores) / testScores.length;
 };
 
 const largestNumber = (numbers) => {
-  // numbers is an array of integers
-  // return the largest integer  
+	// numbers is an array of integers
+	// return the largest integer  
+	if (numbers.length == 0) {
+		return undefined;
+	}
+	if (numbers.length == 1) {
+		return numbers[0];
+	}
+	var largest = numbers[0];
+	var current;
+	for (var i = 0; i < numbers.length; i++) {
+		current = numbers[i];
+		if (current > largest) {
+			largest = current;
+		}
+	}
+	return largest;
 };
 
 // Do not modify code below this line.
 // --------------------------------
 
 module.exports = {
-  getBiggest,
-  greeting,
-  isTenOrFive,
-  isInRange,
-  isInteger,
-  fizzBuzz,
-  isPrime,
-  returnFirst,
-  returnLast,
-  getArrayLength,
-  incrementByOne,
-  addItemToArray,
-  addItemToFront,
-  wordsToSentence,
-  contains,
-  addNumbers,
-  averageTestScore,
-  largestNumber
+	getBiggest,
+	greeting,
+	isTenOrFive,
+	isInRange,
+	isInteger,
+	fizzBuzz,
+	isPrime,
+	returnFirst,
+	returnLast,
+	getArrayLength,
+	incrementByOne,
+	addItemToArray,
+	addItemToFront,
+	wordsToSentence,
+	contains,
+	addNumbers,
+	averageTestScore,
+	largestNumber
 };
